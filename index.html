@@ -64,6 +64,282 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-mysql必知必会" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/06/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" class="article-date">
+  <time datetime="2020-12-06T07:31:08.000Z" itemprop="datePublished">2020-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/06/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">mysql必知必会</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/06/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" data-id="ckicv490o00063sbxf5384rfl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linux基本操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/06/linux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time datetime="2020-12-06T05:48:40.000Z" itemprop="datePublished">2020-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/06/linux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">linux基本操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>linux查看软件安装情况<br>查看软件是否安装<br>rpm -qa|grep mysql<br>查看软件包安装的文件<br>rpm -ql mysql-community-libs-5.6.50-2.el7.x86_64<br>查看mysql所有安装包的文件存储位置<br>rpm -qal |grep mysql<br>yum search 查找对应可以安装的软件包<br>find / -name mysql 有包含mysql服务的文件路径<br>Which查找命令which mysql<br>Whereis命令whereis mysql  find类似</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/06/linux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" data-id="ckicv490900023sbx3nq8491f" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mysql基本操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/06/mysql%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time datetime="2020-12-06T02:44:52.000Z" itemprop="datePublished">2020-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/06/mysql%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">mysql基本操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>配置mysql开机自启动<br>1.chkconfig –add mysql<br>2.chkconfig mysqld on<br>命令启动/关闭mysql实例<br>1.service mysqld start/stop<br>2./etc/init.d/mysqld start/stop<br>命令关闭MySQL<br>mysqladmin -p -u root shutdown<br>检查mysql是否真正的启动<br>netstat -tulpn | grep 3306<br>查询进程<br>ps -ef | grep mysqld</p>
+<p>增加删改查<br><a target="_blank" rel="noopener" href="https://my.oschina.net/u/4115134/blog/3189198">https://my.oschina.net/u/4115134/blog/3189198</a></p>
+<p>连接mysql服务器<br>mysql -uroot -proot  -u用户名 -proot<br>连接mysql服务器并指定IP和端口<br>mysql -uroot -proot -h127.0.0.1 -P3306 -h IP服务器主机名IP地址  3306位默认端口<br>注释 #、/**/、–添加注释</p>
+<p>数据库及表操作<br>1.创建删除查看数据库<br>查看数据库<br><code>show databases;</code><br>进入某数据库进行操作<br><code>use 库名；</code><br>查看已进入的库<br><code>SELECT DATABASE（）；</code><br>查看当前数据库中的所有表<br><code>show tables;</code><br>删除数据库<br><code>drop database mydb1;</code><br><code>drop database if exists mydb1;</code><br>创建mydb1库，指定编码为utf8<br><code>create database mydb1 charset utf8;</code><br><code>create database if not exists mydb1 charset utf8;</code><br>查看建库时的语句（并验证数据库库使用的编码）<br><code>show create database mydb1;</code><br>2.创建、删除、查看表<br>进入mydb1库，删除stu学生表(如果原本存在)<br><code>use mydb1;</code><br><code>drop table if exists stu;</code><br>创建stu学生表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">use mydb1;</span><br><span class="line">drop table if exists stu;</span><br><span class="line">create table stu(</span><br><span class="line">    id int primary key auto_increment,  -- 设置id为主键</span><br><span class="line">    name varchar(50),</span><br><span class="line">    gender varchar(10),</span><br><span class="line">    birthday date,</span><br><span class="line">    score double</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>查看STU学生表结构<br>desc stu；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/06/mysql%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" data-id="ckicv490h00043sbxhdyi8r85" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mysql安装" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/06/mysql%E5%AE%89%E8%A3%85/" class="article-date">
+  <time datetime="2020-12-06T02:35:25.000Z" itemprop="datePublished">2020-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/06/mysql%E5%AE%89%E8%A3%85/">mysql安装</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/06/mysql%E5%AE%89%E8%A3%85/" data-id="ckicv490l00053sbx8o8b1z2v" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-网络拓扑结构" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/05/%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/" class="article-date">
+  <time datetime="2020-12-05T13:48:46.000Z" itemprop="datePublished">2020-12-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/05/%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/">网络拓扑结构</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>网络的拓扑结构就是网络的各结点的连接形状和方法。</p>
+<p>网络拓扑分类：</p>
+<p>1.总线拓扑</p>
+<p>总线型拓扑采用单根传输线作为传输介质（一般为同轴电缆），所有站点共享一条传输信道，一次只能由一个设备传输信号，目的站点匹配分组目的地址，复制内容。<br>优点：1.各站点互不影响。2.安装维护方便，电缆节约<br>结构简单。3.可靠性高，无源工作。<br>缺点：系统范围受到限制，需要中继器扩展，故障诊断困难，需要诊断各节点。故障隔离困难，总线故障，网络瘫痪。<br>2.星型拓扑<br>各结点通过单独线路连接中央节点，相互独立。中心节点一般为交换机。典型实例：专用交换机（private branch exchange，PBX）。<br>优点：介质访问控制简单，容易实现故障诊断和隔离<br>服务部署方便，网络拓展容易。<br>缺点：耗费电缆，安装维护成本高，过分依赖中心节点，各站点分布处理能力低。<br>3.环形拓扑<br>网络各节点通过一条通信线路连接，且数据以分组形式沿一定方向传输，形成闭环。 可以是单向或者双向。各站点有控制收发的访问逻辑。<br>优点：1.电缆长度短，类似总线型。2.扩展容易。3.单向传输，适合光纤，且路由控制简单。4.抗故障性能好。<br>缺点：单结点故障影响整个网络。检测故障困难。使用令牌传递方式，负载轻的时候，等待时间长。</p>
+<p>4.树形拓扑</p>
+<p>树形拓扑是分层结构，根接收信号，广播发送全网。<br>优点组网灵活，易于扩展，线路长度比星型短 故障隔离容易，隔离分支或节点。缺点：对根要求较高</p>
+<p>5.网状拓扑<br>优点：不受瓶颈问题和失效问题的影响。可靠性高。<br>缺点：结构复杂，成本比较高；网状拓扑结构的网络协议比较复杂。</p>
+<p>6.混合型拓扑</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/05/%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/" data-id="ckicv490w00093sbx7luaawya" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-github-CND建设" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/02/github-CND%E5%BB%BA%E8%AE%BE/" class="article-date">
+  <time datetime="2020-12-02T03:49:10.000Z" itemprop="datePublished">2020-12-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/02/github-CND%E5%BB%BA%E8%AE%BE/">github_CND建设</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>jsDeliver-Github-搭建<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/cungudafa/article/details/104274949">https://blog.csdn.net/cungudafa/article/details/104274949</a></p>
+<p>大佬地址：<a target="_blank" rel="noopener" href="https://www.sakura521.cn/">https://www.sakura521.cn/</a><br>git fetch  –recurse-submodules <a target="_blank" rel="noopener" href="https://github.com/iissnan/hexo-theme-next.git">https://github.com/iissnan/hexo-theme-next.git</a> themes/next</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/02/github-CND%E5%BB%BA%E8%AE%BE/" data-id="ckicv490z000a3sbxekng00cg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-NAT穿透原理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/01/NAT%E7%A9%BF%E9%80%8F%E5%8E%9F%E7%90%86/" class="article-date">
+  <time datetime="2020-12-01T07:29:00.000Z" itemprop="datePublished">2020-12-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/01/NAT%E7%A9%BF%E9%80%8F%E5%8E%9F%E7%90%86/">NAT穿透原理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="NAt穿透原理"><a href="#NAt穿透原理" class="headerlink" title="NAt穿透原理"></a>NAt穿透原理</h1><h2 id="NAT工作原理"><a href="#NAT工作原理" class="headerlink" title="NAT工作原理"></a>NAT工作原理</h2><p>网络地址转换-外网可见IP于内网地址相映射。<br>NAT服务主要作用：1.隐藏内部IP地址 2.让公司使用更多的IP地址</p>
+<h2 id="NAT-分类"><a href="#NAT-分类" class="headerlink" title="NAT 分类"></a>NAT 分类</h2><p>全锥型(Full Cone)</p>
+<p>受限锥型(Restricted Cone)<br>端口受限锥型(Port Restricted Cone)<br><strong>图片处理</strong><br><img src="/.com//端口受限制NAT.png" width="50%" height="50%"></p>
+<div style="width: 200px; margin: auto"> 
+![](NAT穿透原理/端口受限制NAT.png)</div>
+
+<p><img src="/.com//%E7%AB%AF%E5%8F%A3%E5%8F%97%E9%99%90%E5%88%B6NAT.png"><br>对称型(Symmetric)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/01/NAT%E7%A9%BF%E9%80%8F%E5%8E%9F%E7%90%86/" data-id="ckicv490300013sbxe11n1avb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-工具网址" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/30/%E5%B7%A5%E5%85%B7%E7%BD%91%E5%9D%80/" class="article-date">
@@ -91,7 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/30/%E5%B7%A5%E5%85%B7%E7%BD%91%E5%9D%80/" data-id="cki5d0vas00037sbxewfl80a0" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/30/%E5%B7%A5%E5%85%B7%E7%BD%91%E5%9D%80/" data-id="ckicv490t00083sbx34ft3ryd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -123,12 +399,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>HEXO文档<br><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a><br>Markdown标记语言</p>
+        <p>HEXO文档<br><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a><br>Markdown标记语言<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014061630/article/details/81359144#25-%E4%BB%A3%E7%A0%81%E5%9D%97">https://blog.csdn.net/u014061630/article/details/81359144#25-%E4%BB%A3%E7%A0%81%E5%9D%97</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/30/blog%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/" data-id="cki5d0vac00007sbx2u8ydx53" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/30/blog%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/" data-id="ckicv48zl00003sbx7jxx1x2t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -181,56 +457,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/30/%E5%9F%BA%E4%BA%8Ehexoblog%E6%90%AD%E5%BB%BA/" data-id="cki5d0vaq00027sbx1pxqh93o" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/11/30/hello-world/" class="article-date">
-  <time datetime="2020-11-30T14:07:29.573Z" itemprop="datePublished">2020-11-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/30/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/30/hello-world/" data-id="cki5d0vam00017sbxgymq5y5z" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/30/%E5%9F%BA%E4%BA%8Ehexoblog%E6%90%AD%E5%BB%BA/" data-id="ckicv490q00073sbx9j2f5ona" class="article-share-link">Share</a>
       
       
     </footer>
@@ -241,6 +468,11 @@
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+  </nav>
 
 </section>
         
@@ -258,7 +490,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
     </div>
   </div>
 
@@ -271,19 +503,23 @@
       <ul>
         
           <li>
-            <a href="/2020/11/30/%E5%B7%A5%E5%85%B7%E7%BD%91%E5%9D%80/">工具网址</a>
+            <a href="/2020/12/06/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">mysql必知必会</a>
           </li>
         
           <li>
-            <a href="/2020/11/30/blog%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/">blog网站建设</a>
+            <a href="/2020/12/06/linux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">linux基本操作</a>
           </li>
         
           <li>
-            <a href="/2020/11/30/%E5%9F%BA%E4%BA%8Ehexoblog%E6%90%AD%E5%BB%BA/">基于hexo搭建blog</a>
+            <a href="/2020/12/06/mysql%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">mysql基本操作</a>
           </li>
         
           <li>
-            <a href="/2020/11/30/hello-world/">Hello World</a>
+            <a href="/2020/12/06/mysql%E5%AE%89%E8%A3%85/">mysql安装</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/05/%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/">网络拓扑结构</a>
           </li>
         
       </ul>

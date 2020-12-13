@@ -152,6 +152,200 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-博客常见问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/13/%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">博客常见问题</a>
+    </h1>
+  
+
+        
+        <a href="/2020/12/13/%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-12-13T13:06:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>NODEJS变量问题：<br>gitbash输入hexo报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;c&#x2F;Users&#x2F;zhouy&#x2F;AppData&#x2F;Roaming&#x2F;npm&#x2F;hexo: line 12: node: command not found</span><br></pre></td></tr></table></figure>
+
+<p>系统变量添加:变量名：NODE_PATH  变量值：C:\Program Files\nodejs    </p>
+<p>用户变量path路径添加%NODE_PATH%</p>
+<p><a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/64d05a021974acde54f73b70.html">https://jingyan.baidu.com/article/64d05a021974acde54f73b70.html</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/13/%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-HCIA" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##HCIA基础知识 ##</p>
+<h3 id="传输介质"><a href="#传输介质" class="headerlink" title="传输介质"></a>传输介质</h3><p>共享介质网络：不同主机同时发送数据导致信号冲突。<br>冲突域是同一共享介质网络节点集合，载波侦听多路访问/冲突检测技术 CSMA/CD  </p>
+<p>工作过程：  </p>
+<ol>
+<li>终端设备检测共享线路状态。线路空闲则发，不空闲则延迟后发。（延迟发送根据退避算法决定）  </li>
+<li>检测到冲突停止发送数据，发送阻塞信息，强化冲突信号，并延迟重发。  </li>
+<li>先听后发，边发边听，冲突停发，随机延迟后重发。 </li>
+</ol>
+<p>双工模式:</p>
+<ul>
+<li><p>半双工：一发一收，需要CSMA/CD机制。  </p>
+</li>
+<li><p>全双工：同时收发，不需要CSMA/CD机制。  </p>
+<h3 id="以太网帧结构"><a href="#以太网帧结构" class="headerlink" title="以太网帧结构"></a>以太网帧结构</h3><p>OSI 开放系统系统互联参考模型 (Open System Interconnection):</p>
+</li>
+<li><p>物理层：在设备间传输比特流，规定电平，电缆针脚等电气属性。      </p>
+</li>
+<li><p>数据链路层：比特组合成帧，链路层地址（MAC)寻址，差错检测。     </p>
+</li>
+<li><p>网络层：网络之间逻辑转发问题，IP寻址，路由选择。</p>
+</li>
+<li><p>传输层：保证端到端可靠传输，TCP/UDP数据传递，差错校验。   </p>
+</li>
+<li><p>会话层：建立管理维护会话连接。  </p>
+</li>
+<li><p>表示层：数据格式化，加密解密，压缩。  </p>
+</li>
+<li><p>应用层：为应用程序提供网络服务。  </p>
+</li>
+</ul>
+<p>TCP/IP:</p>
+<ul>
+<li>应用层：PDU （Protocol Data Unit）协议数据单元  </li>
+<li>传输层：TCP头+PDU=Segment 数据段  </li>
+<li>网络层：IP头+TCP头+PDU=Packet 包  </li>
+<li>网络接口层：1)数据链路层头+IP头+TCP头+PDU=Frame 数据帧 2)数据帧化为比特，通过网络介质传输.<h4 id="以太网帧格式"><a href="#以太网帧格式" class="headerlink" title="以太网帧格式"></a>以太网帧格式</h4></li>
+</ul>
+<p>以太网数据帧两种格式，选着哪种由网络层决定。<br>Length/type&gt;=1536（0x0600）Ethernet_II<br>Length/type&lt;=1500（0x05DC）IEEE802.3</p>
+<h4 id="以太网MACA地址"><a href="#以太网MACA地址" class="headerlink" title="以太网MACA地址"></a>以太网MACA地址</h4><p>网络设备MAC地址全球唯一，前24位由IEEE统一分配，后24位为厂商自行分配。</p>
+<p>局域网帧发送方式：</p>
+<ul>
+<li>单播：第8比特为0。单个主机收，其他主机丢弃。</li>
+<li>广播：目的地址为FF:FF:FF:FF,所有主机收。</li>
+<li>组播：第8比特为1，同组主机收，其他主机丢。</li>
+</ul>
+<p>数据帧接收：检查目的mac地址判断是否丢弃，接收后，进行帧校验（检查真校验序列FCS），通过校验，根据Type字段发给上层协议校验，0X0800为IP协议，0X0806为ARP协议。</p>
+<h3 id="IP编制"><a href="#IP编制" class="headerlink" title="IP编制"></a>IP编制</h3><p>IP头部信息用来知道网络设备对报文进行路由和分片。<br>IPV4地址为32比特二进制，点分十进制表示，包括网络号和主机号。<br>两个特殊的IPV4地址：主机位全1表示广播地址，全0表示网段。</p>
+<h4 id="有类IP编制"><a href="#有类IP编制" class="headerlink" title="有类IP编制"></a>有类IP编制</h4><p>IP地址分类:</p>
+<ul>
+<li>A类 ： 最高位固定为0    1.0.0.0-126.255.255.255   ，适用于大型网络  </li>
+<li>B类 ： 最高位固定为10   128.0.0.0-191.255.255.255 ，适用于中型网络  </li>
+<li>C类 ： 最高位固定为110  192.0.0.0-223.255.255.255 ，适用于小型网络  </li>
+<li>D类 ： 最高位固定为1110 224.0.0.0-239.255.255.255 ，用于组播  </li>
+<li>E类 ： 最高位固定为1111 240.192.0.0.0-255.255.255.255，用于科研保留  </li>
+</ul>
+<p>IP地址计算：<br>128.0,192.0.0没有被分配可以查看RFC3330，这两个地址暂时被保留，没有分配。<br>A类:可指派网络数：2^7-2,0.0.0.0表示任何网络;最大主机数2^24-2。<br>B类:可指派网络数：2^14-1，128.0保留;最大主机数2^16-2。<br>C类:可指派网络数：2^21-1,192.0.0保留;最大主机数2^8-2。</p>
+<h4 id="无类IP编制"><a href="#无类IP编制" class="headerlink" title="无类IP编制"></a>无类IP编制</h4><p>可变长子网掩码(VLSM)<br>通过可变长子网掩码解决有类IP编制，浪费地址的缺陷。常规做法，借用主机位作为子网位。<br>无类域间路由（Classless Inter Domain Routing),RFC1817<br>将路由表中的若干条路由汇聚成一条，减少路由表规模，提高路由器可扩展性。<br>网关：接收并处理本地网络报文并转发到目的网段的设备。<br>网关地址：网关设备连接本地的接口地址。<br>IP包分片；TTL生存时间，防止堵塞；协议号，标识网络层协议。</p>
+<h3 id="ICMP协议"><a href="#ICMP协议" class="headerlink" title="ICMP协议"></a>ICMP协议</h3><p>消息控制协议ICMP（Internet Control Message Protocol）是网络层的重要协议，用来传递各种差错和控制信息，主要用于网络信息收集，故障诊断。</p>
+<p>ICMP消息：</p>
+<ul>
+<li>ICMP Redirect重定向：用于支持路由功能，主机通过默认网关地址发送报文，默认网关检查目的地址，若不匹配。发送ICMP重定向消息给主机。主机向正确IP地址发送报文。</li>
+<li>ICMP Echo消息：分为Request(Type为8)和Replay（Type为0），常用于诊断网络连通性。  </li>
+<li>ICMP 错误消息：出现目的不可达或者无法访问等问题时，返回给发送主机。</li>
+</ul>
+<p>IP消息类型和编码类型imag<br>ICMP应用-Ping：Ping用于检测网络连通。<br>ICMP应用-Tarcet：Tracert用于检测路由环路，检测网络丢包和时延。<br>若IP报文到达目的地之前TTL已经为0，则目的设备丢弃该包，返回TTL超时的ICMP消息。</p>
+<h3 id="ARP消息"><a href="#ARP消息" class="headerlink" title="ARP消息"></a>ARP消息</h3><p>ARP (Address Resolution Protocol)协议实现通过目的IP地址获取目的MAC地址。<br>ARP报文不能穿越路由器，不能转发到其他广播域。<br>网络设备通过ARP协议建立IP地址和MAC地址之间的映射。  </p>
+<h4 id="ARP缓存表（ARP-Cache）"><a href="#ARP缓存表（ARP-Cache）" class="headerlink" title="ARP缓存表（ARP Cache）####"></a>ARP缓存表（ARP Cache）####</h4><p>网络设备发送数据前检查ARP缓存表，获取对端设备MAC地址并封装帧，然后转发。<br>若没有，通过APR Request报文来获取该地址并存入ARP缓存表。ARP缓存表表项是有时间的，过期删除表项。<br>若目标设备位于其他网络，则源设备获取网关MAC地址封装，然后由网关转发。</p>
+<h4 id="ARP以及ARP代理过程"><a href="#ARP以及ARP代理过程" class="headerlink" title="ARP以及ARP代理过程"></a>ARP以及ARP代理过程</h4><p>ARP消息主要字段：目的IP地址，源IP地址，目的MAC地址，源MAC地址，操作类型。</p>
+<p>ARP过程:</p>
+<p>环境：Host A—Host B </p>
+<ol>
+<li>A广播ARP Request报文，此时ARP报文目的MAC地址为0，以太网目的MAC为广播地址。</li>
+<li>B收到ARP请求报文，检查报文目的IP地址与自身IP地址，若不匹配，则不响应；若匹配，记录ARP报文的源MAC地址和源IP信息到ARP缓存表中。</li>
+<li>B单播发送ARP响应消息给A，源IP地址和源MAC地址为B地址，操作类型变为Reply。</li>
+<li>A收到响应消息，检查ARP消息目的MAC地址与自己MAC地址是否匹配，匹配则记入ARP缓存。  </li>
+</ol>
+<p>ARP代理：</p>
+<p>环境：Host A—B1路由器B2—Host C<br>路由器开启ARP代理功能，收到A ARP请求，查找路由表，如果有主机C路由表项，使用B1接口的MAC地址来响应A，主机A，收到响应消息后，根据BA接口MAC地址进行数据转发。</p>
+<p>免费ARP可以用来探测IP地址冲突，具体操作为，将ARP请求消息目的IP设置为自己的IP，如果收到响应，就说明IP冲突了。</p>
+<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/13/HCIA/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-mysql必知必会" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -173,7 +367,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="查"><a href="#查" class="headerlink" title="查"></a>查</h2><p>检索单个列</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT prod_name</span><br><span class="line">FROM Products;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT prod_name FROM Products;</span><br></pre></td></tr></table></figure>
 <p>检索多个列</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT prod_id, prod_name, prod_price</span><br><span class="line">FROM Products;</span><br></pre></td></tr></table></figure>
 <p>检索所有列</p>
@@ -217,7 +411,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT vend_id, COUNT(*) AS num_prods</span><br><span class="line">FROM Products</span><br><span class="line">WHERE prod_price &gt;&#x3D; 4 --价格大于4</span><br><span class="line">GROUP BY vend_id</span><br><span class="line">HAVING COUNT(*) &gt;&#x3D; 2;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT order_num, COUNT(*) AS items</span><br><span class="line">FROM OrderItems</span><br><span class="line">GROUP BY order_num</span><br><span class="line">HAVING COUNT(*) &gt;&#x3D; 3</span><br><span class="line">ORDER BY items, order_num; --一般在使用GROUP BY子句时，应该也给出ORDER BY子句，保证数据正确排序。</span><br></pre></td></tr></table></figure>
 
-<h3 id="SELECT子句顺序"><a href="#SELECT子句顺序" class="headerlink" title="SELECT子句顺序"></a>SELECT子句顺序</h3><p>SELECT     要返回的列或表达式  必须使用<br>FROM       从中检索数据的表    仅在从表选择数据时使用<br>WHERE      行级过滤           非必须使用<br>GROUP BY   分组说明           仅在按组计算聚集时使⽤<br>HAVING     组级过滤           非必须使用<br>ORDER BY   输出排序顺序       非必须使用</p>
+<h3 id="SELECT子句顺序"><a href="#SELECT子句顺序" class="headerlink" title="SELECT子句顺序"></a>SELECT子句顺序</h3><p>SELECT     要返回的列或表达式  必须使用<br>FROM       从中检索数据的表    仅在从表选择数据时使用<br>WHERE      行级过滤           非必须使用<br>GROUP BY   分组说明           仅在按组计算聚集时使用<br>HAVING     组级过滤           非必须使用<br>ORDER BY   输出排序顺序       非必须使用</p>
 <h2 id="使用子查询"><a href="#使用子查询" class="headerlink" title="使用子查询"></a>使用子查询</h2><p>子查询即嵌套在其他查询中的查询。SELECT是简单查询， 从单个数据库表中检索数据的单条语句。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_id</span><br><span class="line">FROM Orders</span><br><span class="line">WHERE order_num IN (SELECT order_num</span><br><span class="line">FROM OrderItems                      --可多层嵌套，实际考虑性能。</span><br><span class="line">WHERE prod_id &#x3D; &#39;RGAN01&#39;);</span><br></pre></td></tr></table></figure>
 <p>上述分为两个步骤：<br>SELECT order_num FROM orderitems WHERE prod_id=’RGAN01’<br>SELECT cust_id FROM orders WHERE order_num IN (20007,20008)</p>
@@ -236,7 +430,78 @@
 <p>没有WHERE子句，第一个表中的每一行将与第二个表中的每一行配对。<br>笛卡儿积（cartesian product）由没有联结条件的表关系返回的结果,有时也叫叉联结（cross join），检索出的行的数<br>目将是第一个表中的行数乘以第二个表中的行数。</p>
 <h3 id="内联结"><a href="#内联结" class="headerlink" title="内联结"></a>内联结</h3><p>内联结出了用WHERE以外，ANSI SQL规范首选INNER JOIN语法。参阅DBMS文档。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT vend_name, prod_name, prod_price</span><br><span class="line">FROM Vendors INNER JOIN Products</span><br><span class="line">ON Vendors.vend_id &#x3D; Products.vend_id;--ON 替代WHERE</span><br></pre></td></tr></table></figure>
+<h4 id="联结多个表"><a href="#联结多个表" class="headerlink" title="联结多个表"></a>联结多个表</h4><p>SELECT语句返回订购产品RGAN01的顾客列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_name, cust_contact</span><br><span class="line">FROM Customers, Orders, OrderItems</span><br><span class="line">WHERE Customers.cust_id &#x3D; Orders.cust_id</span><br><span class="line">AND OrderItems.order_num &#x3D; Orders.order_num</span><br><span class="line">AND prod_id &#x3D; &#39;RGAN01&#39;;</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_name, cust_contact</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_id IN (SELECT cust_id</span><br><span class="line">FROM Orders</span><br><span class="line">WHERE order_num IN (SELECT order_num--用嵌套实现</span><br><span class="line">FROM OrderItems</span><br><span class="line">WHERE prod_id &#x3D; &#39;RGAN01&#39;));</span><br></pre></td></tr></table></figure>
+<h3 id="创建高级联结"><a href="#创建高级联结" class="headerlink" title="创建高级联结"></a>创建高级联结</h3><h4 id="使用表别名"><a href="#使用表别名" class="headerlink" title="使用表别名"></a>使用表别名</h4><p>缩短SQL语句；<br>允许在一条SELECT语句中多次使用相同的表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_name, cust_contact</span><br><span class="line">FROM Customers AS C, Orders AS O, OrderItems AS OI</span><br><span class="line">WHERE C.cust_id &#x3D; O.cust_id</span><br><span class="line">AND OI.order_num &#x3D; O.order_num</span><br><span class="line">AND prod_id &#x3D; &#39;RGAN01&#39;;</span><br></pre></td></tr></table></figure>
+<p>表别名只在查询执行中使用。与列别名不一样，表别名不返回到客户端</p>
+<p>内联结，自联结（self-join）、自然联结（natural join）和外<br>联结（outer join）</p>
+<h4 id="自联结"><a href="#自联结" class="headerlink" title="自联结"></a>自联结</h4><p>给与Jim Jones同一公司的所有顾客发送一封信件<br>首先找出Jim Jones工作的公司，然后找出在该公司用作的顾客</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#方法一</span><br><span class="line">SELECT cust_id, cust_name, cust_contact</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name &#x3D; (SELECT cust_name</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_contact &#x3D; &#39;Jim Jones&#39;);</span><br><span class="line">#方法二 自联结一般比子查询快</span><br><span class="line">SELECT c1.cust_id, c1.cust_name, c1.cust_contact</span><br><span class="line">FROM Customers AS c1, Customers AS c2</span><br><span class="line">WHERE c1.cust_name &#x3D; c2.cust_name</span><br><span class="line">AND c2.cust_contact &#x3D; &#39;Jim Jones&#39;;</span><br></pre></td></tr></table></figure>
+<h4 id="外联结"><a href="#外联结" class="headerlink" title="外联结"></a>外联结</h4><p>二种基本的外联结形式：左外联结和右外联结，–全外联结（full outer join）mysql不支持。<br>外联结：包含了那些在相关表中没有关联行的行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT Customers.cust_id, Orders.order_num</span><br><span class="line">FROM Customers LEFT OUTER JOIN Orders --OUTER JOIN来指定联结类型</span><br><span class="line">ON Customers.cust_id &#x3D; Orders.cust_id;</span><br></pre></td></tr></table></figure>
+<p>RIGHT指出的是OUTER JOIN右边的表，而LEFT指出的是OUTER JOIN左边的表。</p>
+<h3 id="使用带聚集函数的联结"><a href="#使用带聚集函数的联结" class="headerlink" title="使用带聚集函数的联结"></a>使用带聚集函数的联结</h3><p>检索所有顾客及每个顾客所下的订单数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#内联结</span><br><span class="line">SELECT Customers.cust_id,</span><br><span class="line">COUNT(Orders.order_num) AS num_ord</span><br><span class="line">FROM Customers INNER JOIN Orders</span><br><span class="line">ON Customers.cust_id &#x3D; Orders.cust_id</span><br><span class="line">GROUP BY Customers.cust_id;</span><br><span class="line"></span><br><span class="line">#外联结 外联结可以打印出所有客户，包括没订单的</span><br><span class="line">SELECT Customers.cust_id,</span><br><span class="line">COUNT(Orders.order_num) AS num_ord</span><br><span class="line">FROM Customers LEFT OUTER JOIN Orders</span><br><span class="line">ON Customers.cust_id &#x3D; Orders.cust_id</span><br><span class="line">GROUP BY Customers.cust_id;</span><br></pre></td></tr></table></figure>
+<h3 id="使用联结和联结条件"><a href="#使用联结和联结条件" class="headerlink" title="使用联结和联结条件"></a>使用联结和联结条件</h3><h2 id="组合查询"><a href="#组合查询" class="headerlink" title="组合查询"></a>组合查询</h2><p>利用UNION操作符将多条SELECT语句组合成一个结果集<br>并（union）或复合查询（compound query）<br>1.在一个查询中从不同的表返回结构数据；<br>2.对一个表执行多个查询，按一个查询返回数据。<br>需要Illinois、Indiana和Michigan等美国各个州的所有顾客的报表，还想包括不管位于哪个州的所有的Fun4All</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#39;IL&#39;,&#39;IN&#39;,&#39;MI&#39;)</span><br><span class="line">UNION</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name &#x3D; &#39;Fun4All&#39;;</span><br><span class="line">#</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#39;IL&#39;,&#39;IN&#39;,&#39;MI&#39;)</span><br><span class="line">OR cust_name &#x3D; &#39;Fun4All&#39;;</span><br></pre></td></tr></table></figure>
+<h3 id="UNION规则"><a href="#UNION规则" class="headerlink" title="UNION规则"></a>UNION规则</h3><p>1.UNION必须由两条或两条以上的SELECT语句组成，语句之间用关键字UNION分隔。<br>2.UNION中的每个查询必须包含相同的列、表达式或聚集函数（不过，各个列不需要以相同的次序列出）。<br>3.列数据类型必须兼容：类型不必完全相同，但必须是DBMS可以隐含转换的类型（例如，不同的数值类型或不同的日期类型）。</p>
+<h4 id="包含或取消重复的行"><a href="#包含或取消重复的行" class="headerlink" title="包含或取消重复的行"></a>包含或取消重复的行</h4><p>UNION总是完成与多个WHERE条件相同的操作，如果需要每个匹配行都出现，必须使用UNION ALL。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#39;IL&#39;,&#39;IN&#39;,&#39;MI&#39;)</span><br><span class="line">UNION ALL  --UNION ALL返回所有值，UNION返回不重复的值</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name &#x3D; &#39;Fun4All&#39;;</span><br></pre></td></tr></table></figure>
+<h4 id="对组合查询结果排序"><a href="#对组合查询结果排序" class="headerlink" title="对组合查询结果排序"></a>对组合查询结果排序</h4><p>用UNION组合查询时，只能使用一条ORDER BY子句，它必须位于最后一条SELECT语句之后.<br>另外两种UNION：EXCEPT（有时称为MINUS）可用来检索只在第一个表中存在而在第二个表中不存在的行；<br>INTERSECT可用来检索两个表中都存在的行。<br>UNION与别名组合，检索一个结果集，操作多个表。</p>
+<h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><p>INSERT用来将行插入（或添加）到数据库表。<br>插入完整的行；<br>插入行的一部分；<br>插入某些查询的结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO Customers-- INTO 可选</span><br><span class="line">VALUES(&#39;1000000006&#39;,&#39;Toy Land&#39;,&#39;123 Any Street&#39;,</span><br><span class="line">&#39;New York&#39;,&#39;NY&#39;,&#39;11111&#39;,&#39;USA&#39;,NULL,NULL);</span><br><span class="line">#推荐明确给出列名，这种方法还可以省略列。</span><br><span class="line">INSERT INTO Customers(cust_id,</span><br><span class="line">cust_name,cust_address,cust_city,cust_state,cust_zip,</span><br><span class="line">cust_country,cust_contact,cust_email)</span><br><span class="line">VALUES(&#39;1000000006&#39;,&#39;Toy Land&#39;,&#39;123 Any Street&#39;,&#39;New York&#39;,</span><br><span class="line">&#39;NY&#39;,&#39;11111&#39;,&#39;USA&#39;,NULL,NULL);</span><br></pre></td></tr></table></figure>
+<p>省略的列必须满足以下某个条件。<br>该列定义为允许NULL值（无值或空值）。<br>在表定义中给出默认值。这表⽰如果不给出值，将使用默认值。</p>
+<h3 id="插入检索出的数据"><a href="#插入检索出的数据" class="headerlink" title="插入检索出的数据"></a>插入检索出的数据</h3><p>从名为CustNew的表中读出数据并插入到Customers表<br>在填充CustNew时，不应该使用已经在Customers中用过的cust_id值（如果主键值重复，后续的INSERT操作将会失败）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSERT INTO Customers(cust_id,</span><br><span class="line">cust_contact,cust_email,cust_name,cust_address,cust_city,cust_state,</span><br><span class="line">cust_zip,cust_country)</span><br><span class="line">SELECT cust_id,cust_contact,cust_email,cust_name,cust_address,cust_city,</span><br><span class="line">cust_state,cust_zip,cust_country FROM CustNew;</span><br></pre></td></tr></table></figure>
+<p>INSERT SELECT中SELECT语句可以包含WHERE子句，以过滤插图的数据。<br>INSERT通常只插入一条，INSERT SELECT是个例外，它可以用一条INSERT插入多行。</p>
+<h3 id="从一个表复制到另一个表"><a href="#从一个表复制到另一个表" class="headerlink" title="从一个表复制到另一个表"></a>从一个表复制到另一个表</h3><p>SELECT INTO将数据复制到一个新表<br>INSERT SELECT与SELECT INTO区别：前者导出数据，而后者导入数据.<br>创建一个名为CustCopy的新表，并把Customers表的整个内容复制到新表中。<br><code>SELECT * INTO CustCopy FROM Customers;</code><br><code>CREATE TABLE CustCopy AS SELECT * FROM Customers;</code></p>
+<p>任何SELECT选项和子句都可以使用，包括WHERE和GROUP BY；<br>可利用联结从多个表插入数据；<br>不管从多少个表中检索数据，数据都只能插入到一个表中。</p>
+<h2 id="更新和删除数据"><a href="#更新和删除数据" class="headerlink" title="更新和删除数据"></a>更新和删除数据</h2><h3 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h3><p>有两种使用UPDATE的方式：更新表中的特定行；更新表中的所有行。<br>基本的UPDATE语句<br>要更新的表；列名和它们的新值；确定要更新哪些行的过滤条件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">UPDATE Customers</span><br><span class="line">SET cust_contact &#x3D; &#39;Sam Roberts&#39;,</span><br><span class="line">cust_email &#x3D; &#39;sam@toyland.com&#39;</span><br><span class="line">WHERE cust_id &#x3D; &#39;1000000006&#39;; --没有这句，DBMS将用这个电子邮件地址更新Customers表中的所有行</span><br></pre></td></tr></table></figure>
+<p>UPDATE语句中可以使用子查询，使得能用SELECT语句检索出的数据更新列数据</p>
+<p>要删除某个列的值，可设置它为NULL（假如表定义允许NULL值），区别’’，后者是个值。<br>UPDATE Customers<br>SET cust_email = NULL<br>WHERE cust_id = ‘1000000005’;</p>
+<h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><p>有两种使用DELETE的方式：<br>从表中删除特定的行；<br>从表中删除所有行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM Customers</span><br><span class="line">WHERE cust_id &#x3D; &#39;1000000006&#39;;</span><br></pre></td></tr></table></figure>
+
+<p>DELETE不需要列名或通配符。DELETE删除整行而不是删除列。要删除指定的列，请使用UPDATE语句。<br>DELETE删除表的内容而不是表。<br>TRUNCATE TABLE语句不记录数据变动，删除所有行更快。</p>
+<h3 id="更新和删除的指导原则"><a href="#更新和删除的指导原则" class="headerlink" title="更新和删除的指导原则"></a>更新和删除的指导原则</h3><ol>
+<li>除非确实打算更新和删除每一行，否则绝对不要使用不带WHERE子句的UPDATE或DELETE语句。</li>
+<li>保证每个表都有主键，尽可能像WHERE子句那样使用它（可以指定各主键、多个值或值的范围）。</li>
+<li>在UPDATE或DELETE语句使用WHERE子句前，应该先用SELECT进⾏测试，保证它过滤的是正确的记录，<br>以防编写的WHERE⼦句不正确。</li>
+<li>使用强制实施引用完整性的数据库，这样DBMS将不允许删除其数据与其他表相关联的行。</li>
+<li>有的DBMS允许数据库管理员施加约束，防止执行不带WHERE子句的UPDATE或DELETE语句。如果所采用的DBMS支持这个特性，应该使用它。<h2 id="创建和操纵表"><a href="#创建和操纵表" class="headerlink" title="创建和操纵表"></a>创建和操纵表</h2><h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3>CREATE TABLE创建表<br>新表的名字，在关键字CREATE TABLE之后给出；<br>表列的名字和定义，用逗号分隔；<br>有的DBMS还要求指定表的位置。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Products</span><br><span class="line">(</span><br><span class="line">prod_id CHAR(10) NOT NULL, --NOT NULL 插入没有值的列时会报错。</span><br><span class="line">vend_id CHAR(10) NOT NULL,</span><br><span class="line">prod_name CHAR(254) NOT NULL,</span><br><span class="line">prod_price DECIMAL(8,2) NOT NULL,</span><br><span class="line">prod_desc VARCHAR(1000) --不指定NULL，默认为NULL。</span><br><span class="line">); </span><br></pre></td></tr></table></figure>
+只有不允许NULL值的列可作为主键，允许NULL值的列不能作为唯一标识<br>默认值在CREATE TABLE语句的列定义中用关键字DEFAULT指定<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE OrderItems</span><br><span class="line">(</span><br><span class="line">order_num INTEGER NOT NULL,</span><br><span class="line">order_item INTEGER NOT NULL,</span><br><span class="line">prod_id CHAR(10) NOT NULL,</span><br><span class="line">quantity INTEGER NOT NULL DEFAULT 1,</span><br><span class="line">item_price DECIMAL(8,2) NOT NULL</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+MySQL用户指定DEFAULT CURRENT_DATE()；<h3 id="更新表"><a href="#更新表" class="headerlink" title="更新表"></a>更新表</h3>理想情况下，不要在表中包含数据时对其进行更新。应该在表的设计过程中充分考虑未来可能的需求，避免今后对表的结构做大改动。<br>所有的DBMS都允许给现有的表增加列，不过对所增加列的数据类型（以及NULL和DEFAULT的使用）有所限制。<br>许多DBMS不允许删除或更改表中的列。<br>多数DBMS允许重新命名表中的列。<br>许多DBMS限制对已经填有数据的列进行更改，对未填有数据的列几乎没有限制。<br>使用ALTER TABLE更改表结构</li>
+<li>在ALTER TABLE之后给出要更改的表名（该表必须存在，否则将出错）；</li>
+<li>列出要做哪些更改。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE Vendors ADD vend_phone CHAR(20);</span><br><span class="line">ALTER TABLE Vendors DROP COLUMN vend_phone;</span><br></pre></td></tr></table></figure>
+使用ALTER TABLE要极为⼩⼼，应该在进行改动前做完整的备份（模式和数据的备份）<br>数据库表的更改不能撤销，如果增加了不需要的列，也许无法删除它们</li>
+</ol>
+<p>复杂的表结构更改一般需要手动删除过程，它涉及以下步骤：</p>
+<ol>
+<li>用新的列布局创建一个新表；</li>
+<li>使用INSERT SELECT语句（关于这条语句的详细介绍，请参阅<br>第15课）从旧表复制数据到新表。有必要的话，可以使用转换函数和计算字段；</li>
+<li>检验包含所需数据的新表；</li>
+<li>重命名旧表（如果确定，可以删除它）；</li>
+<li>用旧表原来的名字重命名新表；</li>
+<li>根据需要，重新创建触发器、存储过程、索引和外键。</li>
+</ol>
+<h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><p>DROP TABLE语句<br>DROP TABLE CustCopy; –删除表没有确认，也不能撤销，执行这条语句将永久删除该表</p>
+<h4 id="重命名表"><a href="#重命名表" class="headerlink" title="重命名表"></a>重命名表</h4><p>MySQL使用RENAME</p>
+<h2 id="视图（虚拟的表）"><a href="#视图（虚拟的表）" class="headerlink" title="视图（虚拟的表）"></a>视图（虚拟的表）</h2><p>CREATE VIEW只能用于创建不存在的视图<br>DROP VIEW viewname;</p>
+<p>利用视图简化复杂的联结</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">CREATE VIEW ProductCustomers AS</span><br><span class="line">SELECT cust_name, cust_contact, prod_id</span><br><span class="line">FROM Customers, Orders, OrderItems</span><br><span class="line">WHERE Customers.cust_id &#x3D; Orders.cust_id</span><br><span class="line">AND OrderItems.order_num &#x3D; Orders.order_num;</span><br><span class="line"></span><br><span class="line">SELECT cust_name, cust_contact</span><br><span class="line">FROM ProductCustomers</span><br><span class="line">WHERE prod_id &#x3D; &#39;RGAN01&#39;;</span><br><span class="line">#用视图重新格式化检索出的数据</span><br><span class="line"></span><br><span class="line">CREATE VIEW VendorLocations AS</span><br><span class="line">SELECT RTRIM(vend_name) + &#39; (&#39; + RTRIM(vend_country) + &#39;)&#39;--mysql拼接必须使用函数</span><br><span class="line">AS vend_title</span><br><span class="line">FROM Vendors;</span><br><span class="line">SELECT * FROM VendorLocations;</span><br><span class="line"></span><br><span class="line">#用视图过滤不想要的数据</span><br><span class="line">CREATE VIEW CustomerEMailList AS</span><br><span class="line">SELECT cust_id, cust_name, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_email IS NOT NULL; --过滤没有邮件的客户</span><br><span class="line"></span><br><span class="line">SELECT * FROM CustomerEMailList;</span><br><span class="line">#使用视图与计算字段</span><br><span class="line">CREATE VIEW OrderItemsExpanded AS</span><br><span class="line">SELECT order_num,</span><br><span class="line">prod_id,</span><br><span class="line">quantity,</span><br><span class="line">item_price,</span><br><span class="line">quantity*item_price AS expanded_price</span><br><span class="line">FROM OrderItems；</span><br><span class="line"></span><br><span class="line">SELECT *</span><br><span class="line">FROM OrderItemsExpanded</span><br><span class="line">WHERE order_num &#x3D; 20008;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="使用存储过程"><a href="#使用存储过程" class="headerlink" title="使用存储过程"></a>使用存储过程</h2><p>使用事务处理（transaction processing），通过确保成批的SQL操作要么完全执行，要么完全不执行，来维护数据库的完整性。<br>事务处理需要知道的几个术语<br>事务（transaction）指一组SQL语句；<br>回退（rollback）指撤销指定SQL语句的过程；<br>提交（commit）指将未存储的SQL语句结果写⼊数据库表；<br>保留点（savepoint）指事务处理中设置的临时占位符<br>（placeholder），可以对它发布回退（与回退整个事务处理不同）。<br>事务处理用来管理INSERT、UPDATE和DELETE语句<br>不能回退SELECT语句，CREATE或DROP操作。事务处理中可以使用这些语句，但进行回退<br>时，这些操作也不撤销。</p>
+<h3 id="控制事务处理"><a href="#控制事务处理" class="headerlink" title="控制事务处理"></a>控制事务处理</h3><p>一般的SQL语句都是针对数据库表直接执行和编写的。这就是所谓的<br>隐式提交（implicit commit），即提交（写或保存）操作是自动进行的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#MySQL</span><br><span class="line">START TRANSACTION</span><br><span class="line">...</span><br><span class="line">DELETE FROM Orders;</span><br><span class="line">ROLLBACK;   --回退（撤销）</span><br><span class="line"></span><br><span class="line">SET TRANSACTION</span><br><span class="line">DELETE OrderItems WHERE order_num &#x3D; 12345;</span><br><span class="line">DELETE Orders WHERE order_num &#x3D; 12345;</span><br><span class="line">COMMIT;--mysql一般默认开启aotucommit，使用show variables like &#39;%autocommit%&#39;查看</span><br><span class="line">#保留点</span><br><span class="line">SAVEPOINT delete1;-- 支持回退部分事务，回退到占位符即保留点。</span><br></pre></td></tr></table></figure>
+<h3 id="使用游标"><a href="#使用游标" class="headerlink" title="使用游标"></a>使用游标</h3><h3 id="高级SQL特性"><a href="#高级SQL特性" class="headerlink" title="高级SQL特性"></a>高级SQL特性</h3><h3 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h3><h4 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h4><p>外键有助防止意外删除<br>级联删除（cascading delete）：从一个表中删除行时删除所有相关的数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#使用了REFERENCES关键字，它表示cust_id中的任何值都必须是Customers表的cust_id中的值。</span><br><span class="line">CREATE TABLE Orders</span><br><span class="line">(</span><br><span class="line">order_num INTEGER NOT NULL PRIMARY KEY,</span><br><span class="line">order_date DATETIME NOT NULL,</span><br><span class="line">cust_id CHAR(10) NOT NULL REFERENCES</span><br><span class="line">Customers(cust_id)</span><br><span class="line">);</span><br><span class="line">#在ALTER TABLE语句中用CONSTRAINT语法来完成</span><br><span class="line">ALTER TABLE Orders</span><br><span class="line">ADD CONSTRAINT</span><br><span class="line">FOREIGN KEY (cust_id) REFERENCES Customers (cust_id)</span><br></pre></td></tr></table></figure>
+<p>唯一约束既可以用UNIQUE关键字在表定义中定义，也可以用单独的CONSTRAINT定义。<br>与主键的区别：<br>表可包含多个唯一约束，但每个表只允许一个主键。<br>唯一约束列可包含NULL值。<br>唯一约束列可修改或更新。<br>唯一约束列的值可重复使用。<br>与主键不一样，唯一约束不能用来定义外键。</p>
+<h3 id="检查约束"><a href="#检查约束" class="headerlink" title="检查约束"></a>检查约束</h3><p>检查约束用来保证一列（或一组列）中的数据满足一组指定的条件。</p>
+<p>```<br>CREATE TABLE OrderItems<br>(<br>order_num INTEGER NOT NULL,<br>order_item INTEGER NOT NULL,<br>prod_id CHAR(10) NOT NULL,<br>quantity INTEGER NOT NULL CHECK (quantity &gt; 0),<br>item_price MONEY NOT NULL<br>);</p>
+<p>ADD CONSTRAINT CHECK (gender LIKE ‘[MF]’)</p>
 
       
 
@@ -726,6 +991,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>git 指南<br><a target="_blank" rel="noopener" href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh">https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh</a></p>
+<p>markdown<br><a target="_blank" rel="noopener" href="https://blog.mikelyou.com/2020/04/08/advanced-markdown-skill/">https://blog.mikelyou.com/2020/04/08/advanced-markdown-skill/</a></p>
+<p><a target="_blank" rel="noopener" href="https://nmask.cn/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/s">https://nmask.cn/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/s</a></p>
 
       
 
@@ -739,148 +1006,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/11/30/%E5%B7%A5%E5%85%B7%E7%BD%91%E5%9D%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-blog网站建设" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/30/blog%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/">blog网站建设</a>
-    </h1>
-  
-
-        
-        <a href="/2020/11/30/blog%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/" class="archive-article-date">
-  	<time datetime="2020-11-30T15:53:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>HEXO文档<br><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a><br>Markdown标记语言<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014061630/article/details/81359144#25-%E4%BB%A3%E7%A0%81%E5%9D%97">https://blog.csdn.net/u014061630/article/details/81359144#25-%E4%BB%A3%E7%A0%81%E5%9D%97</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/30/blog%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-基于hexoblog搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/30/%E5%9F%BA%E4%BA%8Ehexoblog%E6%90%AD%E5%BB%BA/">基于hexo搭建blog</a>
-    </h1>
-  
-
-        
-        <a href="/2020/11/30/%E5%9F%BA%E4%BA%8Ehexoblog%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2020-11-30T14:10:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="hexo搭建个人博客"><a href="#hexo搭建个人博客" class="headerlink" title="hexo搭建个人博客"></a>hexo搭建个人博客</h1><h2 id="1-环境搭建"><a href="#1-环境搭建" class="headerlink" title="1.环境搭建"></a>1.环境搭建</h2><h3 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h3><p>ndoe -v npm -v 测试是否安装成功</p>
-<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>npm install -g hexo-cli （-g表示全局安装hexo-cli脚手架）</p>
-<h3 id="验证是否安装成功-hexo-v"><a href="#验证是否安装成功-hexo-v" class="headerlink" title="验证是否安装成功 hexo -v"></a>验证是否安装成功 hexo -v</h3><p>切换npm国内源<br>npm i nrm -g<br>nrm ls<br>nrm use taobao</p>
-<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p>git –version</p>
-<p>git在安装后需要配置一下用户名和邮箱信息，在命令行工具中输入如下命令：<br>   git config –global user.name “你的用户名”<br>   git config –global user.email “你的邮箱”</p>
-<p>gitm公钥配置见git文档</p>
-<h2 id="2-使用Hexo开始搭建博客"><a href="#2-使用Hexo开始搭建博客" class="headerlink" title="2.使用Hexo开始搭建博客"></a>2.使用Hexo开始搭建博客</h2><p>hexo init 项目目录下初始化<br>hexo n “文件名” 新建文件<br>hexo clean 清楚<br>hexo g 重新解析<br>hexo s 启动服务</p>
-<h2 id="3-将博客部署到github"><a href="#3-将博客部署到github" class="headerlink" title="3.将博客部署到github"></a>3.将博客部署到github</h2><h3 id="登陆github创建仓库"><a href="#登陆github创建仓库" class="headerlink" title="登陆github创建仓库"></a>登陆github创建仓库</h3><p>创建仓库名“账户名.github.io”</p>
-<h3 id="在本地目录中安装github插件"><a href="#在本地目录中安装github插件" class="headerlink" title="在本地目录中安装github插件"></a>在本地目录中安装github插件</h3><p>hexo项目目录下输入cmd<br>npm install -save hexo-deployer-git  （save表示仅在本项目中安装）</p>
-<h3 id="修改hexo项目目录下配置文件-config-yml"><a href="#修改hexo项目目录下配置文件-config-yml" class="headerlink" title="修改hexo项目目录下配置文件_config.yml"></a>修改hexo项目目录下配置文件_config.yml</h3><p>_config.yml下修改<br>deploy:<br>  type: ‘git’<br>  repo: github仓库地址<br>  branch: master</p>
-<p>  git需要配置公钥</p>
-<h2 id="4-更换Hexo博客默认主题"><a href="#4-更换Hexo博客默认主题" class="headerlink" title="4.更换Hexo博客默认主题"></a>4.更换Hexo博客默认主题</h2><h3 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h3><p>从github clone主题文件到hexo项目theme目录下<br>git clone https：//xxx.git themes/文件夹名称</p>
-<h3 id="修改-config-yml"><a href="#修改-config-yml" class="headerlink" title="修改_config.yml"></a>修改_config.yml</h3><p>修改该文件下themes位更换的文件夹名称</p>
-<h3 id="更新并重新部署"><a href="#更新并重新部署" class="headerlink" title="更新并重新部署"></a>更新并重新部署</h3><p>hexo clean 清理缓存<br>hexo g     解析生成<br>hexo s     运行hexo服务预览博客<br>hexo d    部署github通过github链接</p>
-<p>本文档根据以下视频学习整理</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Np4y1Y7SW?from=search&amp;seid=9635874666812820094">https://www.bilibili.com/video/BV1Np4y1Y7SW?from=search&amp;seid=9635874666812820094</a></p>
-<p>友情链接 ：<a target="_blank" rel="noopener" href="https://vino-wang.gitee.io/">https://vino-wang.gitee.io/</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/30/%E5%9F%BA%E4%BA%8Ehexoblog%E6%90%AD%E5%BB%BA/">展开全文 >></a>
         </p>
       
 

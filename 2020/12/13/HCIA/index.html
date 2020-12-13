@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | </title>
+  <title></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="##HCIA基础知识 ## 传输介质共享介质网络：不同主机同时发送数据导致信号冲突。冲突域是同一共享介质网络节点集合，载波侦听多路访问&#x2F;冲突检测技术 CSMA&#x2F;CD   工作过程：    终端设备检测共享线路状态。线路空闲则发，不空闲则延迟后发。（延迟发送根据退避算法决定）   检测到冲突停止发送数据，发送阻塞信息，强化冲突信号，并延迟重发。   先听后发，边发边听，冲突停发，随机延迟后重发。">
+<meta property="og:type" content="article">
 <meta property="og:title">
-<meta property="og:url" content="http://example.com/archives/index.html">
+<meta property="og:url" content="http://example.com/2020/12/13/HCIA/index.html">
 <meta property="og:site_name">
+<meta property="og:description" content="##HCIA基础知识 ## 传输介质共享介质网络：不同主机同时发送数据导致信号冲突。冲突域是同一共享介质网络节点集合，载波侦听多路访问&#x2F;冲突检测技术 CSMA&#x2F;CD   工作过程：    终端设备检测共享线路状态。线路空闲则发，不空闲则延迟后发。（延迟发送根据退避算法决定）   检测到冲突停止发送数据，发送阻塞信息，强化冲突信号，并延迟重发。   先听后发，边发边听，冲突停发，随机延迟后重发。">
 <meta property="og:locale">
+<meta property="article:published_time" content="2020-12-13T09:41:49.111Z">
+<meta property="article:modified_time" content="2020-12-13T09:41:08.963Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -150,289 +154,227 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-HCIA" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##HCIA基础知识 ##</p>
+<h3 id="传输介质"><a href="#传输介质" class="headerlink" title="传输介质"></a>传输介质</h3><p>共享介质网络：不同主机同时发送数据导致信号冲突。<br>冲突域是同一共享介质网络节点集合，载波侦听多路访问/冲突检测技术 CSMA/CD  </p>
+<p>工作过程：  </p>
+<ol>
+<li>终端设备检测共享线路状态。线路空闲则发，不空闲则延迟后发。（延迟发送根据退避算法决定）  </li>
+<li>检测到冲突停止发送数据，发送阻塞信息，强化冲突信号，并延迟重发。  </li>
+<li>先听后发，边发边听，冲突停发，随机延迟后重发。 </li>
+</ol>
+<p>双工模式:</p>
+<ul>
+<li><p>半双工：一发一收，需要CSMA/CD机制。  </p>
+</li>
+<li><p>全双工：同时收发，不需要CSMA/CD机制。  </p>
+<h3 id="以太网帧结构"><a href="#以太网帧结构" class="headerlink" title="以太网帧结构"></a>以太网帧结构</h3><p>OSI 开放系统系统互联参考模型 (Open System Interconnection):</p>
+</li>
+<li><p>物理层：在设备间传输比特流，规定电平，电缆针脚等电气属性。      </p>
+</li>
+<li><p>数据链路层：比特组合成帧，链路层地址（MAC)寻址，差错检测。     </p>
+</li>
+<li><p>网络层：网络之间逻辑转发问题，IP寻址，路由选择。</p>
+</li>
+<li><p>传输层：保证端到端可靠传输，TCP/UDP数据传递，差错校验。   </p>
+</li>
+<li><p>会话层：建立管理维护会话连接。  </p>
+</li>
+<li><p>表示层：数据格式化，加密解密，压缩。  </p>
+</li>
+<li><p>应用层：为应用程序提供网络服务。  </p>
+</li>
+</ul>
+<p>TCP/IP:</p>
+<ul>
+<li>应用层：PDU （Protocol Data Unit）协议数据单元  </li>
+<li>传输层：TCP头+PDU=Segment 数据段  </li>
+<li>网络层：IP头+TCP头+PDU=Packet 包  </li>
+<li>网络接口层：1)数据链路层头+IP头+TCP头+PDU=Frame 数据帧 2)数据帧化为比特，通过网络介质传输.<h4 id="以太网帧格式"><a href="#以太网帧格式" class="headerlink" title="以太网帧格式"></a>以太网帧格式</h4></li>
+</ul>
+<p>以太网数据帧两种格式，选着哪种由网络层决定。<br>Length/type&gt;=1536（0x0600）Ethernet_II<br>Length/type&lt;=1500（0x05DC）IEEE802.3</p>
+<h4 id="以太网MACA地址"><a href="#以太网MACA地址" class="headerlink" title="以太网MACA地址"></a>以太网MACA地址</h4><p>网络设备MAC地址全球唯一，前24位由IEEE统一分配，后24位为厂商自行分配。</p>
+<p>局域网帧发送方式：</p>
+<ul>
+<li>单播：第8比特为0。单个主机收，其他主机丢弃。</li>
+<li>广播：目的地址为FF:FF:FF:FF,所有主机收。</li>
+<li>组播：第8比特为1，同组主机收，其他主机丢。</li>
+</ul>
+<p>数据帧接收：检查目的mac地址判断是否丢弃，接收后，进行帧校验（检查真校验序列FCS），通过校验，根据Type字段发给上层协议校验，0X0800为IP协议，0X0806为ARP协议。</p>
+<h3 id="IP编制"><a href="#IP编制" class="headerlink" title="IP编制"></a>IP编制</h3><p>IP头部信息用来知道网络设备对报文进行路由和分片。<br>IPV4地址为32比特二进制，点分十进制表示，包括网络号和主机号。<br>两个特殊的IPV4地址：主机位全1表示广播地址，全0表示网段。</p>
+<h4 id="有类IP编制"><a href="#有类IP编制" class="headerlink" title="有类IP编制"></a>有类IP编制</h4><p>IP地址分类:</p>
+<ul>
+<li>A类 ： 最高位固定为0    1.0.0.0-126.255.255.255   ，适用于大型网络  </li>
+<li>B类 ： 最高位固定为10   128.0.0.0-191.255.255.255 ，适用于中型网络  </li>
+<li>C类 ： 最高位固定为110  192.0.0.0-223.255.255.255 ，适用于小型网络  </li>
+<li>D类 ： 最高位固定为1110 224.0.0.0-239.255.255.255 ，用于组播  </li>
+<li>E类 ： 最高位固定为1111 240.192.0.0.0-255.255.255.255，用于科研保留  </li>
+</ul>
+<p>IP地址计算：<br>128.0,192.0.0没有被分配可以查看RFC3330，这两个地址暂时被保留，没有分配。<br>A类:可指派网络数：2^7-2,0.0.0.0表示任何网络;最大主机数2^24-2。<br>B类:可指派网络数：2^14-1，128.0保留;最大主机数2^16-2。<br>C类:可指派网络数：2^21-1,192.0.0保留;最大主机数2^8-2。</p>
+<h4 id="无类IP编制"><a href="#无类IP编制" class="headerlink" title="无类IP编制"></a>无类IP编制</h4><p>可变长子网掩码(VLSM)<br>通过可变长子网掩码解决有类IP编制，浪费地址的缺陷。常规做法，借用主机位作为子网位。<br>无类域间路由（Classless Inter Domain Routing),RFC1817<br>将路由表中的若干条路由汇聚成一条，减少路由表规模，提高路由器可扩展性。<br>网关：接收并处理本地网络报文并转发到目的网段的设备。<br>网关地址：网关设备连接本地的接口地址。<br>IP包分片；TTL生存时间，防止堵塞；协议号，标识网络层协议。</p>
+<h3 id="ICMP协议"><a href="#ICMP协议" class="headerlink" title="ICMP协议"></a>ICMP协议</h3><p>消息控制协议ICMP（Internet Control Message Protocol）是网络层的重要协议，用来传递各种差错和控制信息，主要用于网络信息收集，故障诊断。</p>
+<p>ICMP消息：</p>
+<ul>
+<li>ICMP Redirect重定向：用于支持路由功能，主机通过默认网关地址发送报文，默认网关检查目的地址，若不匹配。发送ICMP重定向消息给主机。主机向正确IP地址发送报文。</li>
+<li>ICMP Echo消息：分为Request(Type为8)和Replay（Type为0），常用于诊断网络连通性。  </li>
+<li>ICMP 错误消息：出现目的不可达或者无法访问等问题时，返回给发送主机。</li>
+</ul>
+<p>IP消息类型和编码类型imag<br>ICMP应用-Ping：Ping用于检测网络连通。<br>ICMP应用-Tarcet：Tracert用于检测路由环路，检测网络丢包和时延。<br>若IP报文到达目的地之前TTL已经为0，则目的设备丢弃该包，返回TTL超时的ICMP消息。</p>
+<h3 id="ARP消息"><a href="#ARP消息" class="headerlink" title="ARP消息"></a>ARP消息</h3><p>ARP (Address Resolution Protocol)协议实现通过目的IP地址获取目的MAC地址。<br>ARP报文不能穿越路由器，不能转发到其他广播域。<br>网络设备通过ARP协议建立IP地址和MAC地址之间的映射。  </p>
+<h4 id="ARP缓存表（ARP-Cache）"><a href="#ARP缓存表（ARP-Cache）" class="headerlink" title="ARP缓存表（ARP Cache）####"></a>ARP缓存表（ARP Cache）####</h4><p>网络设备发送数据前检查ARP缓存表，获取对端设备MAC地址并封装帧，然后转发。<br>若没有，通过APR Request报文来获取该地址并存入ARP缓存表。ARP缓存表表项是有时间的，过期删除表项。<br>若目标设备位于其他网络，则源设备获取网关MAC地址封装，然后由网关转发。</p>
+<h4 id="ARP以及ARP代理过程"><a href="#ARP以及ARP代理过程" class="headerlink" title="ARP以及ARP代理过程"></a>ARP以及ARP代理过程</h4><p>ARP消息主要字段：目的IP地址，源IP地址，目的MAC地址，源MAC地址，操作类型。</p>
+<p>ARP过程:</p>
+<p>环境：Host A—Host B </p>
+<ol>
+<li>A广播ARP Request报文，此时ARP报文目的MAC地址为0，以太网目的MAC为广播地址。</li>
+<li>B收到ARP请求报文，检查报文目的IP地址与自身IP地址，若不匹配，则不响应；若匹配，记录ARP报文的源MAC地址和源IP信息到ARP缓存表中。</li>
+<li>B单播发送ARP响应消息给A，源IP地址和源MAC地址为B地址，操作类型变为Reply。</li>
+<li>A收到响应消息，检查ARP消息目的MAC地址与自己MAC地址是否匹配，匹配则记入ARP缓存。  </li>
+</ol>
+<p>ARP代理：</p>
+<p>环境：Host A—B1路由器B2—Host C<br>路由器开启ARP代理功能，收到A ARP请求，查找路由表，如果有主机C路由表项，使用B1接口的MAC地址来响应A，主机A，收到响应消息后，根据BA接口MAC地址进行数据转发。</p>
+<p>免费ARP可以用来探测IP地址冲突，具体操作为，将ARP请求消息目的IP设置为自己的IP，如果收到响应，就说明IP冲突了。</p>
+<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/13/%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-12-13T13:06:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/13/%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">博客常见问题</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/12/13/HCIA/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/13/HCIA/" class="archive-article-date">
-  	<time datetime="2020-12-13T09:41:49.111Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/06/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" class="archive-article-date">
-  	<time datetime="2020-12-06T07:31:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-06</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/06/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">mysql必知必会</a>
-    </h1>
+    <a href="/2020/12/13/%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          博客常见问题
+        
+      </div>
+    </a>
   
+  
+    <a href="/2020/12/06/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mysql必知必会</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/06/linux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2020-12-06T05:48:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-06</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/06/linux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">linux基本操作</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/06/mysql%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2020-12-06T02:44:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/06/mysql%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">mysql基本操作</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/06/mysql%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-12-06T02:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/06/mysql%E5%AE%89%E8%A3%85/">mysql安装</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/05/%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/" class="archive-article-date">
-  	<time datetime="2020-12-05T13:48:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/05/%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/">网络拓扑结构</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/02/github-CND%E5%BB%BA%E8%AE%BE/" class="archive-article-date">
-  	<time datetime="2020-12-02T03:49:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/02/github-CND%E5%BB%BA%E8%AE%BE/">github_CND建设</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/01/NAT%E7%A9%BF%E9%80%8F%E5%8E%9F%E7%90%86/" class="archive-article-date">
-  	<time datetime="2020-12-01T07:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/01/NAT%E7%A9%BF%E9%80%8F%E5%8E%9F%E7%90%86/">NAT穿透原理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/30/%E5%B7%A5%E5%85%B7%E7%BD%91%E5%9D%80/" class="archive-article-date">
-  	<time datetime="2020-11-30T15:57:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/30/%E5%B7%A5%E5%85%B7%E7%BD%91%E5%9D%80/">工具网址</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -456,8 +398,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

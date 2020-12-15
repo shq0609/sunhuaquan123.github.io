@@ -148,13 +148,16 @@
 <h4 id="ARP缓存表（ARP-Cache）"><a href="#ARP缓存表（ARP-Cache）" class="headerlink" title="ARP缓存表（ARP Cache）"></a>ARP缓存表（ARP Cache）</h4><p>网络设备发送数据前检查ARP缓存表，获取对端设备MAC地址并封装帧，然后转发。<br>若没有，通过APR Request报文来获取该地址并存入ARP缓存表。ARP缓存表表项是有时间的，过期删除表项。<br>若目标设备位于其他网络，则源设备获取网关MAC地址封装，然后由网关转发。</p>
 <h4 id="ARP以及ARP代理过程"><a href="#ARP以及ARP代理过程" class="headerlink" title="ARP以及ARP代理过程"></a>ARP以及ARP代理过程</h4><p>ARP消息主要字段：目的IP地址，源IP地址，目的MAC地址，源MAC地址，操作类型。</p>
 <p>ARP过程:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR </span><br><span class="line">A[Host A]-.- B[Host B] </span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph LR 
+A[Host A]-.- B[Host B]</pre>
 
 <ol>
 <li>A广播ARP Request报文，此时ARP报文目的MAC地址为0，以太网目的MAC为广播地址。</li>
 <li>B收到ARP请求报文，检查报文目的IP地址与自身IP地址，若不匹配，则不响应；若匹配，记录ARP报文的源MAC地址和源IP信息到ARP缓存表中。</li>
 <li>B单播发送ARP响应消息给A，源IP地址和源MAC地址为B地址，操作类型变为Reply。</li>
-<li>A收到响应消息，检查ARP消息目的MAC地址与自己MAC地址是否匹配，匹配则记入ARP缓存。<br>ARP代理 ：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[Host A]-.-B[B1路由器B2]</span><br><span class="line">B[B1路由器B2]-.-C[Host C]</span><br></pre></td></tr></table></figure>
+<li>A收到响应消息，检查ARP消息目的MAC地址与自己MAC地址是否匹配，匹配则记入ARP缓存。<br>ARP代理 ：<pre class="mermaid">graph LR
+A[Host A]-.-B[B1路由器B2]
+B[B1路由器B2]-.-C[Host C]</pre>
 路由器开启ARP代理功能，收到A ARP请求，查找路由表，如果有主机C路由表项，使用B1接口的MAC地址来响应A，主机A，收到响应消息后，根据BA接口MAC地址进行数据转发。</li>
 </ol>
 <p>免费ARP可以用来探测IP地址冲突，具体操作为，将ARP请求消息目的IP设置为自己的IP，如果收到响应，就说明IP冲突了。</p>
@@ -190,15 +193,15 @@
 <li>确认号：ack序号，占32位，ACK标志位为1时有效，Ack=Seq+1，随机生成。</li>
 <li>标志位：共6个，其中ACK为确认建立连接，SYN为请求建立连接，FIN为释放连接。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Note Over Client,Server:TCP三次握手</span><br><span class="line">Note Over Client:SYN_SENT</span><br><span class="line">Client-&gt;Server:SYN&#x3D;1,seq&#x3D;J</span><br><span class="line">Note over Server:SYN_RCVD</span><br><span class="line">Server-&gt;Client:SYN&#x3D;1,ACK&#x3D;1,ack&#x3D;J+1,seq&#x3D;K</span><br><span class="line">Note over Client:ESTABILSHED</span><br><span class="line">Client-&gt;Server:ACK&#x3D;1,ack&#x3D;K+1</span><br></pre></td></tr></table></figure>
+<div id="sequence-0"></div>
 
 <h4 id="TCP传输过程"><a href="#TCP传输过程" class="headerlink" title="TCP传输过程"></a>TCP传输过程</h4><p>目的设备收到源端设备数据段会返回确认报文，源端设备收到确认报文后，继续发送数据段。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Note over Host A,Host B:TCP数据段传输</span><br><span class="line">Note left of Host A:数据段 N</span><br><span class="line">Host A--Host B:Seq&#x3D;M-M+499</span><br><span class="line">Note left of Host A:数据段 N+1</span><br><span class="line">Host A--Host B:Seq&#x3D;M+500-M+999</span><br><span class="line">Note left of Host A:数据段 N+2</span><br><span class="line">Host B-&gt;Host A:确认号：Ack&#x3D;M+1000</span><br><span class="line">Host A--Host B:Seq&#x3D;M+1000-M+1499</span><br><span class="line">Note left of Host A:数据段 N+3</span><br><span class="line">Host B-&gt;Host A:若接收失败，确认号Ack&#x3D;M+1000</span><br><span class="line">Host A--Host B:Seq&#x3D;M+1500-M+1999</span><br></pre></td></tr></table></figure>
+<div id="sequence-1"></div>
 
 <p>假设发送500字节大小数据段：seq：M=M-M+499，目的设备通过M=M+499+1来确认。若第3段数据传输失败，仍就用第2段数据的确认消息（Seq:M=1000）去确认。</p>
-<h4 id="TCP流量控制"><a href="#TCP流量控制" class="headerlink" title="TCP流量控制"></a>TCP流量控制</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Note over Host A,Host B:TCP窗口滑动</span><br><span class="line">Host A--Host B:length 1024 windows 3072</span><br><span class="line">Host A--Host B:length 1024 windows 3072</span><br><span class="line">Host A--Host B:length 1024 windows 3072</span><br><span class="line">Note right of Host B:服务器收到2个数据缓存满了，\n第3个数据段被丢失。</span><br><span class="line">Host B-&gt;Host A:ack 2049 windows </span><br><span class="line">Host A--Host B:length 1024 windows 2048</span><br><span class="line">Host A--Host B:length 1024 windows 2048</span><br><span class="line">Host B-&gt;Host A:ack 5121 windows 2048</span><br><span class="line">Host A--Host B:length 1024 windows 2048</span><br><span class="line">Host A--Host B:length 1024 windows 2048</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="TCP流量控制"><a href="#TCP流量控制" class="headerlink" title="TCP流量控制"></a>TCP流量控制</h4><div id="sequence-2"></div>
 
-<h4 id="TCP四次握手"><a href="#TCP四次握手" class="headerlink" title="TCP四次握手"></a>TCP四次握手</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Note Over Client,Server:TCP四次握手</span><br><span class="line">Client-&gt;Server:FIN,ACK（seq&#x3D;a，ack&#x3D;b）</span><br><span class="line">Server-&gt;Client:ACK（seq&#x3D;b,ack&#x3D;a+1)</span><br><span class="line">Note left of Client:关闭</span><br><span class="line">Server-&gt;Client:FIN,ACK（seq&#x3D;b,ack&#x3D;a+1)</span><br><span class="line">Client-&gt;Server:ACK（seq&#x3D;a+1，ack&#x3D;b+1）</span><br><span class="line">Note right of Server:关闭</span><br></pre></td></tr></table></figure>
+<h4 id="TCP四次握手"><a href="#TCP四次握手" class="headerlink" title="TCP四次握手"></a>TCP四次握手</h4><div id="sequence-3"></div>
 
 
 
@@ -214,7 +217,8 @@
 </ul>
 <h2 id="数据转发过程概述"><a href="#数据转发过程概述" class="headerlink" title="数据转发过程概述"></a>数据转发过程概述</h2><p>环境如下：</p>
 <p>imag</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">查找路由--&gt;查找mac地址--&gt;以太网封装--&gt;数据帧转发</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph LR
+查找路由-->查找mac地址-->以太网封装-->数据帧转发</pre>
 
 <h4 id="查找路由（IP）"><a href="#查找路由（IP）" class="headerlink" title="查找路由（IP）"></a>查找路由（IP）</h4><p>主机都会独自维护各自的路由表项，发送数据前通过查找路由检查是否可以到达目的。默认都会维护一条默认路由（0.0.0.0），数据发送到默认网关。</p>
 <h4 id="数据帧转发-ARP"><a href="#数据帧转发-ARP" class="headerlink" title="数据帧转发 ARP"></a>数据帧转发 ARP</h4><p>查找路由后，数据包封装成帧，主机通过查询ARP缓存表获取下一跳MAC地址，一般为网关MAC地址。如果没有获取到，主机会发送ARP请求消息获取网关MAC地址。</p>
@@ -259,13 +263,45 @@
 <p>主机A访问服务器A的web服务，假定建立TCP之后的数据转发流程：</p>
 <ol>
 <li>主机A会对发送应用数据进行加密压缩等操作，之后进行传输层封装。</li>
-<li>进行网络层数据封装，如果IP报文大于网络最大传输单元，进行分片。</li>
+<li>进行网络层数据封装，如果IP报文大于网络最大传输单元，进行分片。<script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">Note Over Client,Server:TCP三次握手
+Note Over Client:SYN_SENT
+Client->Server:SYN=1,seq=J
+Note over Server:SYN_RCVD
+Server->Client:SYN=1,ACK=1,ack=J+1,seq=K
+Note over Client:ESTABILSHED
+Client->Server:ACK=1,ack=K+1</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><textarea id="sequence-1-code" style="display: none">Note over Host A,Host B:TCP数据段传输
+Note left of Host A:数据段 N
+Host A--Host B:Seq=M-M+499
+Note left of Host A:数据段 N+1
+Host A--Host B:Seq=M+500-M+999
+Note left of Host A:数据段 N+2
+Host B->Host A:确认号：Ack=M+1000
+Host A--Host B:Seq=M+1000-M+1499
+Note left of Host A:数据段 N+3
+Host B->Host A:若接收失败，确认号Ack=M+1000
+Host A--Host B:Seq=M+1500-M+1999</textarea><textarea id="sequence-1-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-1-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-1", options);</script><textarea id="sequence-2-code" style="display: none">Note over Host A,Host B:TCP窗口滑动
+Host A--Host B:length 1024 windows 3072
+Host A--Host B:length 1024 windows 3072
+Host A--Host B:length 1024 windows 3072
+Note right of Host B:服务器收到2个数据缓存满了，\n第3个数据段被丢失。
+Host B->Host A:ack 2049 windows 
+Host A--Host B:length 1024 windows 2048
+Host A--Host B:length 1024 windows 2048
+Host B->Host A:ack 5121 windows 2048
+Host A--Host B:length 1024 windows 2048
+Host A--Host B:length 1024 windows 2048</textarea><textarea id="sequence-2-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-2-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-2-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-2", options);</script><textarea id="sequence-3-code" style="display: none">Note Over Client,Server:TCP四次握手
+Client->Server:FIN,ACK（seq=a，ack=b）
+Server->Client:ACK（seq=b,ack=a+1)
+Note left of Client:关闭
+Server->Client:FIN,ACK（seq=b,ack=a+1)
+Client->Server:ACK（seq=a+1，ack=b+1）
+Note right of Server:关闭</textarea><textarea id="sequence-3-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-3-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-3-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-3", options);</script></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/15/HCIA/" data-id="ckipfqjal0000dobx0rwfdvmh" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/15/HCIA/" data-id="ckipgcxlq0000bobxc8pt7foh" class="article-share-link">Share</a>
       
       
     </footer>

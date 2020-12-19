@@ -1,38 +1,699 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  
 
 
-{% block content %}
+<html class="theme-next muse use-motion" lang="cn">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="配置mysql开机自启动1.chkconfig –add mysql2.chkconfig mysqld on命令启动&#x2F;关闭mysql实例1.service mysqld start&#x2F;stop2.&#x2F;etc&#x2F;init.d&#x2F;mysqld start&#x2F;stop命令关闭MySQLmysqladmin -p -u root shutdown检查mysql是否真正的启动netstat -tulpn | gre">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql基本操作">
+<meta property="og:url" content="http://example.com/2020/12/06/mysql%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="配置mysql开机自启动1.chkconfig –add mysql2.chkconfig mysqld on命令启动&#x2F;关闭mysql实例1.service mysqld start&#x2F;stop2.&#x2F;etc&#x2F;init.d&#x2F;mysqld start&#x2F;stop命令关闭MySQLmysqladmin -p -u root shutdown检查mysql是否真正的启动netstat -tulpn | gre">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-12-06T02:44:52.000Z">
+<meta property="article:modified_time" content="2020-12-06T11:14:11.723Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2020/12/06/mysql基本操作/"/>
+
+
+
+
+
+  <title>mysql基本操作 | </title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="cn">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title"></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Nothing is over</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/06/mysql%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">mysql基本操作</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-12-06T10:44:52+08:00">
+                2020-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>配置mysql开机自启动<br>1.chkconfig –add mysql<br>2.chkconfig mysqld on<br>命令启动/关闭mysql实例<br>1.service mysqld start/stop<br>2./etc/init.d/mysqld start/stop<br>命令关闭MySQL<br>mysqladmin -p -u root shutdown<br>检查mysql是否真正的启动<br>netstat -tulpn | grep 3306<br>查询进程<br>ps -ef | grep mysqld</p>
+<p>增删改查<br><a target="_blank" rel="noopener" href="https://my.oschina.net/u/4115134/blog/3189198">https://my.oschina.net/u/4115134/blog/3189198</a></p>
+<p>连接mysql服务器<br>mysql -uroot -proot  -u用户名 -proot<br>连接mysql服务器并指定IP和端口<br>mysql -uroot -proot -h127.0.0.1 -P3306 -h IP服务器主机名IP地址  3306位默认端口<br>注释 #、/**/、–添加注释</p>
+<p>数据库及表操作<br>1.创建删除查看数据库<br>查看数据库<br><code>show databases;</code><br>进入某数据库进行操作<br><code>use 库名；</code><br>查看已进入的库<br><code>SELECT DATABASE（）；</code><br>查看当前数据库中的所有表<br><code>show tables;</code><br>删除数据库<br><code>drop database mydb1;</code><br><code>drop database if exists mydb1;</code><br>创建mydb1库，指定编码为utf8<br><code>create database mydb1 charset utf8;</code><br><code>create database if not exists mydb1 charset utf8;</code><br>查看建库时的语句（并验证数据库库使用的编码）<br><code>show create database mydb1;</code><br>2.创建、删除、查看表<br>进入mydb1库，删除stu学生表(如果原本存在)<br><code>use mydb1;</code><br><code>drop table if exists stu;</code><br>创建stu学生表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">use mydb1;</span><br><span class="line">drop table if exists stu;</span><br><span class="line">create table stu(</span><br><span class="line">    id int primary key auto_increment,  -- 设置id为主键</span><br><span class="line">    name varchar(50),</span><br><span class="line">    gender varchar(10),</span><br><span class="line">    birthday date,</span><br><span class="line">    score double</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>查看STU学生表结构<br>desc stu；</p>
+<h2 id="增"><a href="#增" class="headerlink" title="增"></a>增</h2><p>– 10.往学生表(stu)中插入记录(数据)<br>– 语法：INSERT INTO 表名(列名1,列名2,列名3…) VALUES(值1,值2,值3…);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">insert into stu(id,name,gender,birthday,score) value ( null,&#39;王二妮&#39;,&#39;女&#39;,&#39;2001-3-4&#39;,89);</span><br><span class="line">insert into stu values(null,&#39;李铁柱&#39;,&#39;男&#39;,&#39;1998-1-1&#39;, 84);</span><br><span class="line">insert into stu values(null,&#39;陈翠花&#39;,&#39;女&#39;,&#39;2000-2-5&#39;, 90);</span><br><span class="line">insert into stu(name,gender) values(&#39;张三&#39;,&#39;男&#39;);</span><br></pre></td></tr></table></figure>
+<h2 id="删"><a href="#删" class="headerlink" title="删"></a>删</h2><p>drop、delete、truncate三者的区别.<br>(1)drop是用于删除库和表，delete和truncate是用于删除表记录<br>(2)delete是删除表中的记录,可以删除部分记录,也可以删除所有记录, 对表本身没有影响<br>(3)truncate是只能删除表中的所有记录, 不能删除部分记录, 并且truncate删除是将表摧毁再重建, 对表有影响(比如,会将自增变量的值重置为1)</p>
+<p>– 14.删除stu表中所有的记录<br>– 删除记录语法: DELETE FROM 表名 [where条件]<br>delete from stu;<br>truncate table stu;</p>
+<p>– 仅删除符合条件的<br>delete from stu where id&gt;3;</p>
+<h2 id="改"><a href="#改" class="headerlink" title="改"></a>改</h2><p>– 12.修改stu表中所有学生的成绩，加10分特长分<br>– 修改语法: UPDATE 表名 SET 列=值,列=值,列=值…[WHERE子句];<br><code>update stu set score=score+10;</code><br>– 13.修改stu表中编号为1的学生成绩，将成绩改为83分。<br><code>update stu set score=83 where id=1;</code></p>
+<h2 id="查"><a href="#查" class="headerlink" title="查"></a>查</h2><p>– 11.查询stu表所有学生的信息<br>– 语法：SELECT 列名 | * FROM 表名<br><code>select * from stu;</code><br>–15.查询emp表中的所有员工，显示姓名，薪资，奖金<br><code>select name, sal, bonus from emp;</code><br>– 16.查询emp表中的所有部门和职位<br><code>select dept, job from emp;</code><br>– 在select之后、列名之前，使用DISTINCT 剔除重复的记录<br><code>select distinct dept, job from emp;</code><br>– 17.查询emp表中薪资大于3000的所有员工，显示员工姓名、薪资</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select name, sal from emp</span><br><span class="line">where sal&gt;3000;</span><br></pre></td></tr></table></figure>
+<p>– 18.查询emp表中总薪资(薪资+奖金)大于3500的所有员工，显示员工姓名、总薪资</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select name, sal+bonus from emp</span><br><span class="line">where sal+bonus &gt; 6500; -- 结果不准确</span><br></pre></td></tr></table></figure>
+<p>– ifnull(列, 值)函数: 判断指定的列是否包含null值，如果有null值，用第二个值替换null值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select name, sal+ifnull(bonus, 0) from emp</span><br><span class="line">where sal+ifnull(bonus, 0) &gt; 6500;</span><br></pre></td></tr></table></figure>
+
+<p>– 注意查看上面查询结果中的表头，如何将表头中的 sal+bonus 修改为 “总薪资”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select name as 姓名, sal+ifnull(bonus, 0) as 总薪资 from emp</span><br><span class="line">where sal+ifnull(bonus, 0) &gt; 6500;</span><br></pre></td></tr></table></figure>
+<p>– as用于指定别名, as可以省略。<br>– where子句中不能使用列别名<br>– 19.查询emp表中薪资在3000和4500之间的员工，显示员工姓名和薪资</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select name, sal from emp</span><br><span class="line">where sal&gt;&#x3D;3000 and sal&lt;&#x3D;4500;</span><br><span class="line">-- 提示: between...and... 在..和..之间</span><br><span class="line">select name, sal from emp</span><br><span class="line">where sal between 3000 and 4500; -- 默认包含头和尾</span><br></pre></td></tr></table></figure>
+<p>– 20.查询emp表中薪资为 5600、3000、4200的员工，显示员工姓名和薪资</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select name, sal from emp</span><br><span class="line">where sal&#x3D;5600 or sal&#x3D;3000 or sal&#x3D;4200;</span><br><span class="line">-- 或</span><br><span class="line">select name, sal from emp</span><br><span class="line">where sal in(5600,3000,4200);</span><br></pre></td></tr></table></figure>
+
+<p>– 21.查询薪资不为5600、3000、4200的员工</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">select name, sal from emp</span><br><span class="line">where sal!&#x3D;5600 and sal!&#x3D;3000 and sal!&#x3D;4200;</span><br><span class="line">-- 或</span><br><span class="line">select name, sal from emp</span><br><span class="line">where not(sal&#x3D;5600 or sal&#x3D;3000 or sal&#x3D;4200);</span><br><span class="line">-- 或</span><br><span class="line">select name, sal from emp</span><br><span class="line">where sal not in(5600,3000,4200);</span><br></pre></td></tr></table></figure>
+<p>– 22.查询emp表中薪资大于8000和薪资小于4000的员工，显示员工姓名、薪资。(自己完成)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select name,sal from emp</span><br><span class="line">where sal&gt;&#x3D;8000 or sal&lt;&#x3D;4000;</span><br></pre></td></tr></table></figure>
+<p>– 23.查询emp表中薪资大于3000并且奖金小于600的员工，显示员工姓名、薪资、奖金。(自己完成)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select name,sal,bonus from emp</span><br><span class="line">where sal&gt;6000 and bonus&lt;1000;</span><br></pre></td></tr></table></figure>
+<p>– 处理null值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select name,sal,bonus from emp</span><br><span class="line">where sal&gt;6000 and ifnull(bonus,0)&lt;1000;</span><br></pre></td></tr></table></figure>
+<p>– 24.查询没有部门的员工（即部门列为null值）<br>select * from emp<br>where dept is null;</p>
+<p>– 思考：如何查询有部门的员工（即部门列不为null值）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select * from emp</span><br><span class="line">where dept is not null; --正确</span><br><span class="line"></span><br><span class="line">select * from emp</span><br><span class="line">where dept not is null; -- 错误!</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/12/06/mysql%E5%AE%89%E8%A3%85/" rel="next" title="mysql安装">
+                <i class="fa fa-chevron-left"></i> mysql安装
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/12/06/linux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" rel="prev" title="linux基本操作">
+                linux基本操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
 
     <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+      
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+          </div>
+          
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="" />
+          <p class="site-author-name" itemprop="name"></p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A2%9E"><span class="nav-number">1.</span> <span class="nav-text">增</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0"><span class="nav-number">2.</span> <span class="nav-text">删</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9"><span class="nav-number">3.</span> <span class="nav-text">改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5"><span class="nav-number">4.</span> <span class="nav-text">查</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

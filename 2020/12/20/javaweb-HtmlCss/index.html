@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|[object Object]:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HtmlCss," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="HTML和CSS基础网页组成部分：结构、表现、动作。结构：内容指的是我们页面中看到的数据，通过HTML技术实现。表现：指的是内容页面上的展示形式。通过CSS技术实现。动作指的是页面中元素与输入设备交互的响应，用JavaScript实现。 0 HTML基础超文本标记语言 HTML（Hyper Text Mark Language）HTML通过在文本文件（网页）中添加标记符，告知浏览器如何显示内容。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javaweb_HtmlCss">
+<meta property="og:url" content="http://example.com/2020/12/20/javaweb-HtmlCss/index.html">
+<meta property="og:site_name" content="SunhqBlog">
+<meta property="og:description" content="HTML和CSS基础网页组成部分：结构、表现、动作。结构：内容指的是我们页面中看到的数据，通过HTML技术实现。表现：指的是内容页面上的展示形式。通过CSS技术实现。动作指的是页面中元素与输入设备交互的响应，用JavaScript实现。 0 HTML基础超文本标记语言 HTML（Hyper Text Mark Language）HTML通过在文本文件（网页）中添加标记符，告知浏览器如何显示内容。">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-12-20T04:11:22.000Z">
+<meta property="article:modified_time" content="2020-12-21T23:48:58.331Z">
+<meta property="article:author" content="Sunhq">
+<meta property="article:tag" content="HtmlCss">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2020/12/20/javaweb-HtmlCss/"/>
+
+
+
+
+
+  <title>javaweb_HtmlCss | SunhqBlog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SunhqBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Nothing is over</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%7C%7C%20home" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tools">
+          <a href="/categories/%E5%B7%A5%E5%85%B7%E8%B5%84%E6%BA%90/%20%7C%7Ctools" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            工具
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20%7C%7C%20user" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/20/javaweb-HtmlCss/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://gitee.com/sunhuaquan123/pic-go/raw/master/%E5%BE%AE%E4%BF%A1%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SunhqBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">javaweb_HtmlCss</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-20T12:11:22+08:00">
+                2020-12-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-12-22T07:48:58+08:00">
+                2020-12-22
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="HTML和CSS基础"><a href="#HTML和CSS基础" class="headerlink" title="HTML和CSS基础"></a>HTML和CSS基础</h1><p>网页组成部分：结构、表现、动作。<br>结构：内容指的是我们页面中看到的数据，通过HTML技术实现。<br>表现：指的是内容页面上的展示形式。通过CSS技术实现。<br>动作指的是页面中元素与输入设备交互的响应，用JavaScript实现。</p>
+<h2 id="0-HTML基础"><a href="#0-HTML基础" class="headerlink" title="0 HTML基础"></a>0 HTML基础</h2><p>超文本标记语言 HTML（Hyper Text Mark Language）<br>HTML通过在文本文件（网页）中添加标记符，告知浏览器如何显示内容。</p>
+<h3 id="1-HTML书写规范"><a href="#1-HTML书写规范" class="headerlink" title="1 HTML书写规范"></a>1 HTML书写规范</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>             </span><br><span class="line">    <span class="comment">&lt;!-- 表示整个html页面的开始 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 标题 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- body是页面整体内容 --&gt;</span></span><br><span class="line">         页面内的主题内容</span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 表示整个html结束 --&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-HTML标签介绍"><a href="#2-HTML标签介绍" class="headerlink" title="2 HTML标签介绍"></a>2 HTML标签介绍</h2><ol>
+<li>标签格式<br>&lt;标签名&gt;封装的内容&lt;/标签名&gt;</li>
+<li>标签名大小写不敏感，建议小写</li>
+<li>标签拥有自己的属性</li>
+</ol>
+<ul>
+<li>基本属性：修改简单样式，bgcolor=”red”            </li>
+<li>事件属性:设置事件响应后的代码，onclick=”alert(‘你好’);”</li>
+</ul>
+<ol start="4">
+<li>标签种类</li>
+</ol>
+<ul>
+<li>单标签：</li>
+<li>双标签：<h3 id="2-1-标签语法"><a href="#2-1-标签语法" class="headerlink" title="2.1 标签语法"></a>2.1 标签语法</h3></li>
+</ul>
+<p>1.标签不能交叉<br>2.标签必须正确关闭<br><code>&lt;div&gt;hello world&lt;/div&gt;</code><br><code>&lt;br/&gt;</code><br>3.标签属性必须有值<br><code>&lt;font color=&quot;blue&quot;&gt;hello world&lt;/font&gt;</code><br>4.注释不能嵌套  </p>
+<h3 id="2-2-常用标签"><a href="#2-2-常用标签" class="headerlink" title="2.2 常用标签"></a>2.2 常用标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">&quot;red&quot;</span> <span class="attr">face</span>=<span class="string">&quot;宋体&quot;</span> <span class="attr">size</span>=<span class="string">&quot;7&quot;</span>&gt;</span>我是字体标签<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>具体语法可参见：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://guide.aotu.io/docs/html/note.html">https://guide.aotu.io/docs/html/note.html</a></p>
+</blockquote>
+<h2 id="0-CSS基础"><a href="#0-CSS基础" class="headerlink" title="0 CSS基础"></a>0 CSS基础</h2><p>CSS层叠样式表单，用于控制网页样式并允许样式信息与网页内容分离的标记语言。<br>选择器{属性：值；}<br>CSS 注释：/<em>注释内容</em>/</p>
+<h3 id="1-CSS和HTML结合方式"><a href="#1-CSS和HTML结合方式" class="headerlink" title="1 CSS和HTML结合方式"></a>1 CSS和HTML结合方式</h3><ol>
+<li>在标签的style属性上设置”key:value value;” 修改标签样式。<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border:1px solid red&quot;</span>&gt;</span>div 标签1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border:1px solid red&quot;</span>&gt;</span>div 标签2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;border:1px solid red&quot;</span>&gt;</span>span 标签1<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;border:1px solid red&quot;</span>&gt;</span>span 标签2<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>第二种在head标签中，使用style标签来定义各种需要的CSS样式。</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- style标签用来定义CSS样式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span></span><br><span class="line">	div </span><br><span class="line">	&#123;</span><br><span class="line">		border: 1px solid red</span><br><span class="line">	&#125;</span><br><span class="line">	span</span><br><span class="line">    &#123;</span><br><span class="line">	    border: 1px solid red</span><br><span class="line">	&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>把css样式写成一个单独的css文件，再通过link标签引入即可复用。<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>1.font标签.html<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;..\styles.css&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-CSS选择器"><a href="#2-CSS选择器" class="headerlink" title="2 CSS选择器"></a>2 CSS选择器</h3><h4 id="2-1-标签名选择器"><a href="#2-1-标签名选择器" class="headerlink" title="2.1 标签名选择器"></a>2.1 标签名选择器</h4>标签名{<br> 属性：值；<br>}<h4 id="2-2-id选择器"><a href="#2-2-id选择器" class="headerlink" title="2.2 id选择器"></a>2.2 id选择器</h4>#id属性值{<br> 属性：值；<br>}<h4 id="2-3-class类选择器"><a href="#2-3-class类选择器" class="headerlink" title="2.3 class类选择器"></a>2.3 class类选择器</h4>.class{<br> 属性：值；<br>}<h4 id="2-4组合选择器"><a href="#2-4组合选择器" class="headerlink" title="2.4组合选择器"></a>2.4组合选择器</h4>选择器1，选择器2，选择器n{<br> 属性：值；<br>}</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HtmlCss/" rel="tag"># HtmlCss</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/12/19/MarkDown%E8%AF%AD%E6%B3%95/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/12/20/VsCode%E7%BC%96%E8%BE%91HTML%E5%B0%8F%E6%8A%80%E5%B7%A7/" rel="prev" title="VsCode编辑HTML小技巧">
+                VsCode编辑HTML小技巧 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+      
+      
+          <div>
+            
+            <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+            
+         </div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://gitee.com/sunhuaquan123/pic-go/raw/master/%E5%BE%AE%E4%BF%A1%E5%A4%B4%E5%83%8F.jpg"
+               alt="" />
+          <p class="site-author-name" itemprop="name"></p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML%E5%92%8CCSS%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">HTML和CSS基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-HTML%E5%9F%BA%E7%A1%80"><span class="nav-number">1.1.</span> <span class="nav-text">0 HTML基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-HTML%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83"><span class="nav-number">1.1.1.</span> <span class="nav-text">1 HTML书写规范</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-HTML%E6%A0%87%E7%AD%BE%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.2.</span> <span class="nav-text">2 HTML标签介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E6%A0%87%E7%AD%BE%E8%AF%AD%E6%B3%95"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 标签语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 常用标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-CSS%E5%9F%BA%E7%A1%80"><span class="nav-number">1.3.</span> <span class="nav-text">0 CSS基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-CSS%E5%92%8CHTML%E7%BB%93%E5%90%88%E6%96%B9%E5%BC%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">1 CSS和HTML结合方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-CSS%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.3.2.</span> <span class="nav-text">2 CSS选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E6%A0%87%E7%AD%BE%E5%90%8D%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">2.1 标签名选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-id%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">2.2 id选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-class%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">2.3 class类选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4%E7%BB%84%E5%90%88%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.3.2.4.</span> <span class="nav-text">2.4组合选择器</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sunhq</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
